@@ -5,7 +5,7 @@
 ### Шаги
 
 1. Склонировать проект `git clone git@github.com:ilsinyakov/Pytest_UI_API.git`
-2. Установить зависимости
+2. Установить зависимости `pip install -r requirements.txt`
 3. Запустить тесты `pytest`
 
 ### Стек
@@ -24,7 +24,9 @@
 - ./api - хелперы для работы с API
 - ./db - хелперы для работы с базой данных
 
+### Зависимости
 
+- requirements.txt
 
 ### Полезные ссылки
 

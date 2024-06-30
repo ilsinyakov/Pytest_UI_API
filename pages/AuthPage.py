@@ -1,4 +1,5 @@
 import allure
+from time import sleep
 from selenium.webdriver.common.by import By
 from selenium.webdriver.remote.webdriver import WebDriver
 from selenium.webdriver.support.ui import WebDriverWait
@@ -33,6 +34,7 @@ class AuthPage:
         login_button = self.__driver.find_element(By.ID, 'login-submit')
         login_button.click()
 
+        sleep(5)
         trello_link = self.__driver.\
             find_element(By.CSS_SELECTOR, '[href^="https://trello.com"]')
         trello_link.click()

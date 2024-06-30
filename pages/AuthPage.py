@@ -1,5 +1,7 @@
 from selenium.webdriver.common.by import By
 from selenium.webdriver.remote.webdriver import WebDriver
+from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
 
 
 class AuthPage:
@@ -17,8 +19,20 @@ class AuthPage:
         submit_button = self.__driver.find_element(By.ID, 'login-submit')
         submit_button.click()
 
+        WebDriverWait(self.__driver, 10).until(
+            EC.visibility_of_element_located((By.CSS_SELECTOR,
+                                              'svg[role="presentation"]'))
+            )
+
         password_field = self.__driver.find_element(By.ID, 'password')
         password_field.send_keys(password)
 
         login_button = self.__driver.find_element(By.ID, 'login-submit')
         login_button.click()
+
+        trello_link = self.__driver.\
+            find_element(By.CSS_SELECTOR, '[href^="https://trello.com"]')
+        trello_link.click()
+
+    def get_current_url(self) -> str:
+        return self.__driver.current_url

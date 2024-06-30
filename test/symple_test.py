@@ -7,4 +7,5 @@ def auth_test(browser):
     auth_page.go()
     auth_page.login_as('ilsinyakov@gmail.com', 'skyproskypro')
 
-    sleep(5)
+    assert auth_page.get_current_url().endswith('ilyasinyakov/boards')
+    sleep(10)

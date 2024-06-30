@@ -1,3 +1,4 @@
+import allure
 from selenium.webdriver.common.by import By
 from selenium.webdriver.remote.webdriver import WebDriver
 from selenium.webdriver.support.ui import WebDriverWait
@@ -9,9 +10,11 @@ class AuthPage:
         self.__url = 'https://id.atlassian.com/login?application=trello'
         self.__driver = driver
 
+    @allure.step('Go to auth page')
     def go(self):
         self.__driver.get(self.__url)
 
+    @allure.step('Log in')
     def login_as(self, email: str, password: str) -> None:
         user_name_field = self.__driver.find_element(By.ID, 'username')
         user_name_field.send_keys(email)
@@ -34,5 +37,6 @@ class AuthPage:
             find_element(By.CSS_SELECTOR, '[href^="https://trello.com"]')
         trello_link.click()
 
+    @allure.step('Get current url')
     def get_current_url(self) -> str:
         return self.__driver.current_url

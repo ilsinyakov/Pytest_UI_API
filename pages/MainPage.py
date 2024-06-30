@@ -1,3 +1,4 @@
+import allure
 from selenium.webdriver.common.by import By
 from selenium.webdriver.remote.webdriver import WebDriver
 # from selenium.webdriver.support.ui import WebDriverWait
@@ -8,12 +9,14 @@ class MainPage:
     def __init__(self, driver: WebDriver) -> None:
         self.__driver = driver
 
+    @allure.step('Open account menu')
     def open_menu(self) -> None:
         menu_button = self.__driver.\
             find_element(By.CSS_SELECTOR,
                          '[data-testid="header-member-menu-button"]')
         menu_button.click()
 
+    @allure.step('Get account info')
     def get_account_info(self) -> list[str]:
         name_element = self.__driver.find_element(
             By.XPATH, '//*[@data-testid="account-menu"]'

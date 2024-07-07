@@ -166,3 +166,5 @@ cython_debug/
 
 # allure
 allure*
+
+test_config.ini

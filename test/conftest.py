@@ -3,6 +3,7 @@ from selenium import webdriver
 import pytest
 from api.BoardsApi import BoardsApi
 from configuration.ConfigProvider import ConfigProvider
+from testdata.DataProvider import DataProvider
 # from time import sleep
 
 
@@ -47,3 +48,8 @@ def delete_board():
 
     api = BoardsApi(base_url, token)
     api.delete_board(dictionary.get("board_id"))
+
+
+@pytest.fixture
+def test_data():
+    return DataProvider()

@@ -17,7 +17,8 @@
 - requests
 - *sqlalchemy*
 - allure
-- config
+- configparser
+- json
 
 ### Структура
 
